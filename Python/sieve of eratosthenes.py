@@ -3,12 +3,9 @@
 # time com = o (nloglogn)
 
 
+from math import *
 
 
-
-
-
-from math import*
 def prime_nikalo(n):
     p= [True]*(n+1)
     #  boolean array banaya hai jo true hoga n+1 tak 
