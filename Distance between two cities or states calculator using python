@@ -1,0 +1,23 @@
+'''Simple python code written with the help of geopy and geocoder libraries in python to calculate 
+the distance between two cities or states.'''
+
+!pip install geopy 
+!pip install geocoder
+
+from geopy.geocoders import Nominatim
+from geopy import distance
+
+a = Nominatim(user_agent="DILPREET")
+place1= input("Enter your state/city: ")
+place2= input("Enter another state/city: ")
+
+des_1= a.geocode(place1)
+des_2= a.geocode(place2)
+
+lat1,long1=(des_1.latitude),(des_1.longitude)
+lat2,long2=(des_2.latitude),(des_2.longitude)
+
+len1=(lat1,long1)
+len2=(lat2,long2)
+
+print(f"Distance between the two is : {distance.distance(len1,len2)}")
