@@ -1,0 +1,213 @@
+body{
+    background-image: linear-gradient(rgb(53, 49, 50),rgb(0, 204, 255));
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+    font-family: cursive;
+    
+}
+
+#search{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 10px;
+    
+
+}
+
+#input{
+    width: 700px;
+    min-width: 0px;
+    height: 40px;
+    border: 2px solid rgb(128, 31, 158);
+    animation: fadein 1s ease-in;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.708);
+    font-size: 20px;
+    text-indent: 20px;
+    font-family: cursive;
+    
+}
+#input::placeholder{
+    color: rgba(255, 255, 255, 0.582);
+    font-size: 17px;
+    text-indent: 20px;
+    font-family: cursive;
+    
+}
+#input:focus{
+    outline: none;
+    border-color: rgb(128, 31, 158) ;
+}
+
+
+.getImage{
+    /* border: 2px solid rgba(255, 255, 255, 0.523); */
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color:  rgb(241, 176, 107,0.5);
+    background-image: url('images/icons8-search-48.png');
+    width: 60px;
+    min-width: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 70%;
+    z-index: 10;
+    /* animation: fadein 1s ease-in; */
+}
+
+
+
+.getImage:hover{
+    cursor: pointer;
+    animation: 1s rel;
+}
+@keyframes fadein {
+    0%{opacity: 0;}
+    100%{ opacity: 1;}
+}
+
+@keyframes rel{
+    0%{background-image: url('images/for.gif');
+   }
+    100%{background-image: url('images/for.gif');
+    }
+   
+}
+
+.display{
+    width: 80%;
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    margin: auto;
+    /* background-image: url('images/load.gif');
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+#display{
+    width: 100%;
+    
+    
+
+    /* height: 500px; */
+    
+}
+img{
+    width: 100%;
+    height: 100%;
+    animation: fadein 1s;
+}
+p{
+    text-align: center;
+    opacity: 0;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.523);
+    animation: fadein 1s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+.display{
+    position: relative;;
+}
+
+.loader{
+    position: absolute;
+    opacity: 0;
+    background-image: url('images/load.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:50px 50px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    transition: all 1s;
+}
+#back{
+    position: absolute;
+    top: 0;
+    bottom: 0px;
+    left: -40px;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    background-image: url('images/icons8-left-30.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    transition: background-color 1s;
+    opacity: 0;
+}
+
+#forward{
+    position: absolute;
+    top: 0;
+    bottom: 0px;
+    right: -40px;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    background-image: url('images/icons8-right-30.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    transition: background-color 1s;
+    opacity: 0;
+}
+#download{
+    position: absolute;
+    /* right: 0px; */
+    bottom: -35px;
+    /* left: 0px; */
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    height: 40px;
+    background-image: url('images/icons8-download-48.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    transition: background-color 1s;
+    opacity: 0;
+}
+#back:hover{
+    cursor: pointer;
+    animation: 1s back;
+    animation-direction: reverse;
+    background-color: rgba(241, 176, 107, 0.55);
+}
+
+@keyframes back{
+    0%{background-image: url('images/icons8-right-unscreen.gif');
+    background-size: 70% 7%;
+   }
+    100%{background-image: url('images/icons8-right-unscreen.gif');
+        background-size: 70% 7%;
+    }
+}
+
+#forward:hover{
+    cursor: pointer;
+    animation: 1s back;
+    background-color: rgba(241, 176, 107, 0.55);
+    
+}
+
+#download:hover{
+    cursor: pointer;
+    animation: 1s download;
+    background-color: rgba(241, 176, 107, 0.55);
+}
+
+@keyframes download{
+    0%{background-image: url('images/icons8-download-unscreen.gif');
+    background-size: 50px 115%;
+   }
+    100%{background-image: url('images/icons8-download-unscreen.gif');
+        background-size: 50px 115%;
+    }
+}
