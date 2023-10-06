@@ -11,7 +11,9 @@ function makeMove(index) {
         cells[index].classList.add(currentPlayer);
 
         if (checkWin()) {
+            const winCombination = getWinCombination();
             message.textContent = `Player ${currentPlayer} wins!`;
+            highlightWinCombination(winCombination);
             gameActive = false;
         } else if (!board.includes("")) {
             message.textContent = "It's a draw!";
@@ -44,11 +46,41 @@ function checkWin() {
     return false;
 }
 
+function getWinCombination() {
+    const winPatterns = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            return pattern;
+        }
+    }
+
+    return null;
+}
+
+function highlightWinCombination(combination) {
+    if (combination) {
+        for (let index of combination) {
+            cells[index].classList.add("win");
+        }
+    }
+}
+
 function resetBoard() {
     board = ["", "", "", "", "", "", "", "", ""];
     cells.forEach(cell => {
         cell.textContent = "";
-        cell.classList.remove("X", "O");
+        cell.classList.remove("X", "O", "win");
     });
     currentPlayer = "X";
     message.textContent = "";
