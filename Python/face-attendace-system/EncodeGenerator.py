@@ -8,14 +8,19 @@ from firebase_admin import db
 from firebase_admin import storage
 
 # Load the Firebase service account key and initialize Firebase Admin SDK with database and storage configuration
-cred = credentials.Certificate("C://Users//Mohak//Desktop//NXtech-Python//NXTECH-Python-Task-Number-3//services.json")
-firebase_admin.initialize_app(cred, {
-    'databaseURL': "https://face-attendace-system-ecbe7-default-rtdb.firebaseio.com/",
-    'storageBucket': "face-attendace-system-ecbe7.appspot.com"
-})
+cred = credentials.Certificate(
+    "C://Users//Mohak//Desktop//NXtech-Python//NXTECH-Python-Task-Number-3//services.json"
+)
+firebase_admin.initialize_app(
+    cred,
+    {
+        "databaseURL": "https://face-attendace-system-ecbe7-default-rtdb.firebaseio.com/",
+        "storageBucket": "face-attendace-system-ecbe7.appspot.com",
+    },
+)
 
 # Importing student images from the specified folder
-folderPath = 'Images'
+folderPath = "Images"
 PathList = os.listdir(folderPath)
 print(PathList)
 imgList = []
@@ -27,12 +32,13 @@ for path in PathList:
     studentID.append(os.path.splitext(path)[0])
 
     # Upload the image files to Firebase Storage
-    filename = f'{folderPath}/{path}'
+    filename = f"{folderPath}/{path}"
     bucket = storage.bucket()
     blob = bucket.blob(filename)
     blob.upload_from_filename(filename)
 
 print(studentID)
+
 
 # Function to find face encodings of images in a list
 def findEncodings(imagesList):
@@ -42,6 +48,7 @@ def findEncodings(imagesList):
         encode = face_recognition.face_encodings(img)[0]
         encodeList.append(encode)
     return encodeList
+
 
 print("Encoding Started ...")
 
@@ -54,22 +61,7 @@ encodeListKnownWithID = [encodeListKnown, studentID]
 print("Encoding Complete")
 
 # Save the face encodings along with student IDs to a pickle file
-file = open("EncodeFile.p", 'wb')
+file = open("EncodeFile.p", "wb")
 pickle.dump(encodeListKnownWithID, file)
 file.close()
 print("File Saved")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

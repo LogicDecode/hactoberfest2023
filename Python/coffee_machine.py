@@ -1,4 +1,3 @@
-
 MENU = {
     "espresso": {
         "ingredients": {
@@ -22,15 +21,11 @@ MENU = {
             "coffee": 24,
         },
         "cost": 3.0,
-    }
+    },
 }
 
 profit = 0
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100
-}
+resources = {"water": 300, "milk": 200, "coffee": 100}
 
 
 def refill():
@@ -43,7 +38,7 @@ def refill():
 
 
 def is_resources_sufficient(order_ingredients):
-    """ Returns True when order can be made , Fasle if ingredients are insufficient."""
+    """Returns True when order can be made , Fasle if ingredients are insufficient."""
     is_enough = True
     for item in order_ingredients:
         if order_ingredients[item] > resources[item]:
@@ -53,7 +48,7 @@ def is_resources_sufficient(order_ingredients):
 
 
 def process_coins():
-    """ Returns The Total calculated from coins inserted."""
+    """Returns The Total calculated from coins inserted."""
     print("Please enter the coin.")
     total = int(input("how many quarters?: ")) * 0.25
     total += int(input("how many dimes?: ")) * 0.1
