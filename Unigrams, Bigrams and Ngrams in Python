@@ -1,0 +1,40 @@
+#tokenization and n-gramms
+# nltk.download('punkt')
+
+text = """Fear leads to anger; anger leads to hatred;
+hatred leads to conflict, conflict leads to destroy, destroy is the last conflict leads to suffering. 
+suffering is again fear"""
+
+# normalizung the data
+text = text.lower()
+text
+
+# character wise frequency distribution
+myFD = nltk.FreqDist(text)
+myFD
+
+# generating tokens before creating ngrams
+tokens = nltk.word_tokenize(text)
+tokens
+
+
+# unigrams
+unigrams = nltk.ngrams(tokens, 1)
+unigramFD = nltk.FreqDist(unigrams)
+
+for token in list(unigramFD.items()):
+    print(token[0], token[1])
+
+# bigrams
+bigrams = nltk.ngrams(tokens, 2)
+bigramsFD = nltk.FreqDist(bigrams)
+
+for bigram in list(bigramsFD.items()):
+    print(bigram[0], bigram[1])
+
+# trigrams
+trigrams = nltk.ngrams(tokens, 3)
+trigramsFD = nltk.FreqDist(trigrams)
+
+for trigram in list(trigramsFD.items()):
+    print(trigram[0], trigram[1])
